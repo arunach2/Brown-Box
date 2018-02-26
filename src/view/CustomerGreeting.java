@@ -7,28 +7,30 @@ import errors.InvalidLoginException;
 import model.Member;
 
 public class CustomerGreeting {
-	public static Member greeting() {
+	public Member greeting() {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		Member member = null;
+		LoadingMember loadingMemberCommand;
 		while (true) {
 			try {	
 				System.out.println("Welcome to BrownBox!");
 				System.out.println("Press 1 if you are a new member. Press 2 if you are an existing member.");
 				int choice = sc.nextInt();
 				if (choice == 1) {
-					member = SigningUpMember.initiate();
-					break;
+					loadingMemberCommand = new SigningUpMember();
 				}
 				else if (choice == 2){
-					member = AccessingExistingMember.initiate();
-					break;
+					loadingMemberCommand = new AccessingExistingMember();
 				}
 				else {
 					
 					throw new InputMismatchException();
 				}
+				// Close scanner as 
+				sc.close();
+				
+				return loadingMemberCommand.run();
 			}
 			
 			catch (InputMismatchException e) {
@@ -52,6 +54,5 @@ public class CustomerGreeting {
 				// return;
 			}
 		}
-		return member;
 	}	
 }

@@ -5,9 +5,9 @@ import java.util.Scanner;
 import model.Member;
 import model.NewMemberBuilder;
 
-public class SigningUpMember {
+public class SigningUpMember implements LoadingMember {
 	
-	public static Member initiate() {
+	public Member run() {
 		
 		Member member = new Member();
 		Scanner sc = new Scanner(System.in);

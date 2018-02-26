@@ -6,9 +6,9 @@ import errors.InvalidLoginException;
 import model.Member;
 import model.ExistingMemberBuilder;
 
-public class AccessingExistingMember {
+public class AccessingExistingMember implements LoadingMember{
 	
-	public static Member initiate() throws InvalidLoginException {
+	public Member run() throws InvalidLoginException{
 		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("What is your username?");
@@ -16,7 +16,7 @@ public class AccessingExistingMember {
 		System.out.println("What is your password?");
 		String password = sc.nextLine();
 		
-		return ExistingMemberBuilder.access(userName, password);
+		return new ExistingMemberBuilder().access(userName, password);
 		
 	}
 }

@@ -11,7 +11,7 @@ import errors.InvalidLoginException;
 
 public class ExistingMemberBuilder {
 	
-	public static Member access(String userName, String password_access) throws InvalidLoginException {
+	public Member access(String userName, String password_access) throws InvalidLoginException {
 		
 		String url = "jdbc:mysql://localhost:3306/BrownBox";
 		String user = "root";

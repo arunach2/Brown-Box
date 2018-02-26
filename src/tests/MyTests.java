@@ -13,12 +13,12 @@ public class MyTests {
 	@Test
 	public void testInvalidCredentialsLogin() {
 		try {
-			ExistingMemberBuilder.access("blah", "blah");
+			new ExistingMemberBuilder().access("blah", "blah");
 			fail("Did not throw InvalidLoginException");
 		}
 		
 		catch (InvalidLoginException e){
-			assertTrue(0 == 0);
+			// If exception is thrown then we avoid the fail assert statement
 		}
 		
 	}

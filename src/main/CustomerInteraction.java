@@ -1,4 +1,4 @@
-package view;
+package main;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -11,12 +11,17 @@ import model.ListCategoricalMovies;
 import model.ListMovies;
 import model.Member;
 import model.ShoppingCart;
+import view.CustomerChoices;
+import view.CustomerGreeting;
+import view.PrintCheckedOutMovies;
 
 public class CustomerInteraction {
 	public static void main(String[] Args) {
 		
-		Member member = CustomerGreeting.greeting();
+		// Greets customer at the beginning of the program
+		Member member = new CustomerGreeting().greeting();
 		
+		// Need to still encapsulate this behavior
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Welcome " + member.getFirstName() + "!");
 		ShoppingCart shoppingCart = new ShoppingCart();
