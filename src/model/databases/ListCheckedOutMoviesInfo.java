@@ -1,13 +1,18 @@
-package view;
+package model.databases;
 
 import java.util.ArrayList;
 
-import model.DateCheckedOut;
-import model.ListCheckedOutMovies;
+import model.IMember;
 import model.Member;
 
-public class PrintCheckedOutMovies {
-	public static void print(Member member) {
+public class ListCheckedOutMoviesInfo implements IChoiceCommands{
+	
+	IMember member;
+	
+	public ListCheckedOutMoviesInfo(IMember member) {
+		this.member = member;
+	}
+	public void run() {
 		ArrayList<String> checkedOutMovies;
 		checkedOutMovies = ListCheckedOutMovies.list(member);
 		ArrayList<String> listOfDates;

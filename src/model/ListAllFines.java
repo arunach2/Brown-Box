@@ -1,7 +1,18 @@
 package model;
 
-public class ListAllFines {
-	public static void listfines(Member member, ShoppingCart shoppingCart) {
+import model.databases.CheckFines;
+import model.databases.IChoiceCommands;
+
+public class ListAllFines implements IChoiceCommands{
+	
+	IMember member;
+	IShoppingCart shoppingCart;
+	
+	public ListAllFines(IMember member, IShoppingCart shoppingCart) {
+		this.member = member;
+		this.shoppingCart = shoppingCart;
+	}
+	public void run() {
 		double fines = CheckFines.checkFines(member);
 		double cartCosts = shoppingCart.getTotalCost();
 		double totalCosts = fines + cartCosts;

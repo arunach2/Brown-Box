@@ -1,4 +1,4 @@
-package model;
+package model.databases;
 
 import java.sql.Connection;
 
@@ -11,8 +11,11 @@ import java.util.Date;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.Statement;
 
+import model.IMember;
+import model.Member;
+
 public class DateCheckedOut {
-	public static ArrayList<String> getDates(Member member) {
+	public static ArrayList<String> getDates(IMember member) {
 		
 		String url = "jdbc:mysql://localhost:3306/BrownBox";
 		String user = "root";

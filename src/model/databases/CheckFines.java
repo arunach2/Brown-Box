@@ -1,4 +1,4 @@
-package model;
+package model.databases;
 
 import java.sql.Connection;
 
@@ -10,8 +10,11 @@ import java.util.Date;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.Statement;
 
+import model.IMember;
+import model.Member;
+
 public class CheckFines {
-	public static double checkFines(Member member) {
+	public static double checkFines(IMember member) {
 		
 		String url = "jdbc:mysql://localhost:3306/BrownBox";
 		String user = "root";

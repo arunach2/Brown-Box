@@ -1,19 +1,18 @@
 package main;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.sql.*;
 
-import model.CheckFines;
-import model.Checkout;
 import model.ListAllFines;
-import model.ListCategoricalMovies;
-import model.ListMovies;
 import model.Member;
 import model.ShoppingCart;
+import model.databases.Checkout;
+import model.databases.IChoiceCommands;
+import model.databases.ListCartItems;
+import model.databases.ListCategoricalMovies;
+import model.databases.ListMovies;
+import model.databases.ListCheckedOutMoviesInfo;
 import view.CustomerChoices;
 import view.CustomerGreeting;
-import view.PrintCheckedOutMovies;
 
 public class CustomerInteraction {
 	public static void main(String[] Args) {
@@ -21,41 +20,47 @@ public class CustomerInteraction {
 		// Greets customer at the beginning of the program
 		Member member = new CustomerGreeting().greeting();
 		
-		// Need to still encapsulate this behavior
-		Scanner sc = new Scanner(System.in);
 		System.out.println("Welcome " + member.getFirstName() + "!");
+		
+		Scanner sc = new Scanner(System.in);
+		// Instantiate shoppingCart
 		ShoppingCart shoppingCart = new ShoppingCart();
-		int topic = 0;					
+		int topic = 0;
+		IChoiceCommands command = null;
+		// Going to have to account for potential non-integer input from user (try-catch block)
 		while (topic != 9) {
 			
 			CustomerChoices.print();
 			topic = sc.nextInt();
 			if (topic == 1) {
-				ListMovies.access(shoppingCart);
+				command = new ListMovies(shoppingCart);
 			}
 			else if (topic > 1 && topic < 7) {
-				ListCategoricalMovies.access(topic, shoppingCart);
+				command = new ListCategoricalMovies(topic, shoppingCart);
 			}
 			
 			else if (topic == 7){
-				shoppingCart.printItems();
+				command = new ListCartItems(shoppingCart);
 			}
 			
 			else if (topic == 8) {
-				ListAllFines.listfines(member, shoppingCart);
-				PrintCheckedOutMovies.print(member);
+				command = new ListAllFines(member, shoppingCart);
 			}
 			
 			else if (topic == 9) {
-				Checkout.check(member, shoppingCart);
-				System.out.println("Your total is $"+ String.format("%.2f", shoppingCart.getTotalCost()) + ".");
-				System.out.println("Reminder: Movies are due 7 days after they are rented. Thank you for shopping with us!");
-				
-				
+				command = new ListCheckedOutMoviesInfo(member);
 			}
-		}
-		
-	}
-
-	
+			
+			else if (topic == 10) {
+				command = new Checkout(member, shoppingCart);
+			}
+			else {
+				System.out.println("Invalid Command");
+			}			
+			command.run();
+		}		
+		sc.close();
+		System.out.println("Your total is $"+ String.format("%.2f", shoppingCart.getTotalCost()) + ".");
+		System.out.println("Reminder: Movies are due 7 days after they are rented. Thank you for shopping with us!");
+	}	
 }

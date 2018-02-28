@@ -3,8 +3,8 @@ package view;
 import java.util.Scanner;
 
 import errors.InvalidLoginException;
-import model.Member;
 import model.ExistingMemberBuilder;
+import model.Member;
 
 public class AccessingExistingMember implements LoadingMember{
 	

@@ -12,7 +12,8 @@ public class CustomerChoices {
 		System.out.println("6. SPORTS");
 		System.out.println("7. CHECK CURRENT SHOPPING CART");
 		System.out.println("8. EXISTING FEES/FINES");
-		System.out.println("9. CHECKOUT");
+		System.out.println("9. CURRENT CHECKED OUT MOVIES");
+		System.out.println("10. CHECKOUT");
 		
 	}
 	

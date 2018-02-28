@@ -1,8 +1,9 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
-public class ShoppingCart {
+public class ShoppingCart implements IShoppingCart{
 	
 	ArrayList<IDigitalEntertainment> shoppingCart;
 	
@@ -10,10 +11,8 @@ public class ShoppingCart {
 		this.shoppingCart =  new ArrayList<IDigitalEntertainment>();
 	}
 	
-	public void printItems() {
-		for (IDigitalEntertainment item: shoppingCart) {
-			System.out.println(item.getTitle() + " " + item.getCost());
-		}
+	public Iterator<IDigitalEntertainment> iterator() {
+		return shoppingCart.iterator();
 	}
 	
 	public void addItem(IDigitalEntertainment item) {

@@ -5,8 +5,8 @@ import org.junit.Test;
 
 import errors.InvalidLoginException;
 import model.ExistingMemberBuilder;
-import model.ListMovies;
 import model.ShoppingCart;
+import model.databases.ListMovies;
 
 public class MyTests {
 

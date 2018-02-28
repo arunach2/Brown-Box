@@ -1,4 +1,4 @@
-package model;
+package model.databases;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -9,8 +9,22 @@ import java.sql.SQLException;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.Statement;
 
-public class Checkout {
-	public static void check(Member member, ShoppingCart shoppingCart) {
+import model.IMember;
+import model.IShoppingCart;
+import model.Member;
+import model.ShoppingCart;
+
+public class Checkout implements IChoiceCommands {
+	
+	IMember member;
+	IShoppingCart shoppingCart;
+	
+	public Checkout(IMember member, IShoppingCart shoppingCart) {
+		this.member = member;
+		this.shoppingCart = shoppingCart;
+	}
+	
+ 	public void run() {
 		
 		String url = "jdbc:mysql://localhost:3306/BrownBox";
 		String user = "root";
