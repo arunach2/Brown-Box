@@ -12,7 +12,7 @@ import model.Movie;
 import model.MovieBuilder;
 import model.ShoppingCart;
 
-public class ListCategoricalMovies implements IChoiceCommands{
+public class ListCategoricalMovies implements IDatabaseAccesser{
 	
 	int choice;
 	IShoppingCart shoppingCart;

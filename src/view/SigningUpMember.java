@@ -30,7 +30,7 @@ public class SigningUpMember implements LoadingMember {
 		System.out.println("What is your password?");
 		member.setPassword(sc.nextLine());
 		
-		NewMemberBuilder.initialize(member);
+		new NewMemberBuilder(member).run();
 		return member;
 	}
 }

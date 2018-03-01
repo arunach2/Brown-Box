@@ -14,7 +14,13 @@ import model.IMember;
 import model.Member;
 
 public class CheckFines {
-	public static double checkFines(IMember member) {
+	
+	IMember member;
+	
+	public CheckFines(IMember member) {
+		this.member = member;
+	}
+	public double run() {
 		
 		String url = "jdbc:mysql://localhost:3306/BrownBox";
 		String user = "root";

@@ -15,7 +15,14 @@ import model.IMember;
 import model.Member;
 
 public class DateCheckedOut {
-	public static ArrayList<String> getDates(IMember member) {
+	
+	IMember member;
+	
+	public DateCheckedOut(IMember member) {
+		this.member = member;
+	}
+	
+	public ArrayList<String> run() {
 		
 		String url = "jdbc:mysql://localhost:3306/BrownBox";
 		String user = "root";

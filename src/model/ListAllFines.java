@@ -1,9 +1,9 @@
 package model;
 
 import model.databases.CheckFines;
-import model.databases.IChoiceCommands;
+import model.databases.IDatabaseAccesser;
 
-public class ListAllFines implements IChoiceCommands{
+public class ListAllFines implements IDatabaseAccesser{
 	
 	IMember member;
 	IShoppingCart shoppingCart;
@@ -13,7 +13,7 @@ public class ListAllFines implements IChoiceCommands{
 		this.shoppingCart = shoppingCart;
 	}
 	public void run() {
-		double fines = CheckFines.checkFines(member);
+		double fines = new CheckFines(member).run();
 		double cartCosts = shoppingCart.getTotalCost();
 		double totalCosts = fines + cartCosts;
 		System.out.println("Your cost for your current cart is $" + String.format("%.2f", cartCosts) + ".");

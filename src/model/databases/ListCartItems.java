@@ -5,7 +5,7 @@ import java.util.Iterator;
 import model.IDigitalEntertainment;
 import model.IShoppingCart;
 
-public class ListCartItems implements IChoiceCommands {
+public class ListCartItems implements IDatabaseAccesser {
 	
 	IShoppingCart shoppingCart;
 	

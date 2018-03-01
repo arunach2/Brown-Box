@@ -14,7 +14,7 @@ import model.IShoppingCart;
 import model.Member;
 import model.ShoppingCart;
 
-public class Checkout implements IChoiceCommands {
+public class Checkout implements IDatabaseAccesser {
 	
 	IMember member;
 	IShoppingCart shoppingCart;

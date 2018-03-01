@@ -6,7 +6,7 @@ import model.ListAllFines;
 import model.Member;
 import model.ShoppingCart;
 import model.databases.Checkout;
-import model.databases.IChoiceCommands;
+import model.databases.IDatabaseAccesser;
 import model.databases.ListCartItems;
 import model.databases.ListCategoricalMovies;
 import model.databases.ListMovies;
@@ -26,9 +26,9 @@ public class CustomerInteraction {
 		// Instantiate shoppingCart
 		ShoppingCart shoppingCart = new ShoppingCart();
 		int topic = 0;
-		IChoiceCommands command = null;
+		IDatabaseAccesser command = null;
 		// Going to have to account for potential non-integer input from user (try-catch block)
-		while (topic != 9) {
+		while (topic != 11) {
 			
 			CustomerChoices.print();
 			topic = sc.nextInt();
@@ -56,10 +56,11 @@ public class CustomerInteraction {
 			}
 			else {
 				System.out.println("Invalid Command");
-			}			
+			}
+			
 			command.run();
 		}		
-		sc.close();
+
 		System.out.println("Your total is $"+ String.format("%.2f", shoppingCart.getTotalCost()) + ".");
 		System.out.println("Reminder: Movies are due 7 days after they are rented. Thank you for shopping with us!");
 	}	

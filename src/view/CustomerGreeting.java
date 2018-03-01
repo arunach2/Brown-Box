@@ -28,7 +28,6 @@ public class CustomerGreeting {
 					throw new InputMismatchException();
 				}
 				// Close scanner as 
-				sc.close();
 				
 				return loadingMemberCommand.run();
 			}

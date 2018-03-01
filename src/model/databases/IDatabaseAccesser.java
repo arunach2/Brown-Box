@@ -1,5 +1,5 @@
 package model.databases;
 
-public interface IChoiceCommands {
+public interface IDatabaseAccesser {
 	public void run();
 }

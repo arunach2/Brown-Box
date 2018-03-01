@@ -15,7 +15,13 @@ import model.IMember;
 import model.Member;
 
 public class ListCheckedOutMovies {
-	public static ArrayList<String> list(IMember member) {
+	
+	IMember member;
+	
+	public ListCheckedOutMovies(IMember member) {
+		this.member = member;
+	}
+	public ArrayList<String> run() {
 		
 		String url = "jdbc:mysql://localhost:3306/BrownBox";
 		String user = "root";

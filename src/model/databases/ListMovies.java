@@ -13,7 +13,7 @@ import model.Movie;
 import model.MovieBuilder;
 import model.ShoppingCart;
 
-public class ListMovies implements IChoiceCommands{
+public class ListMovies implements IDatabaseAccesser{
 	
 	IShoppingCart shoppingCart;
 	

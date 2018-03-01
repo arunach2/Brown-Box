@@ -8,8 +8,17 @@ import java.sql.SQLException;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.Statement;
 
-public class NewMemberBuilder {
-	public static void initialize(Member member) {
+import model.databases.IDatabaseAccesser;
+
+public class NewMemberBuilder implements IDatabaseAccesser {
+	
+	IMember member;
+	
+	public NewMemberBuilder(IMember member) {
+		this.member = member;
+	}
+	
+	public void run() {
 		
 		String url = "jdbc:mysql://localhost:3306/BrownBox";
 		String user = "root";
