@@ -2,18 +2,26 @@ package view;
 
 import java.util.Scanner;
 
+import errors.AlreadyExistingMemberException;
 import model.Member;
-import model.NewMemberBuilder;
+import model.databases.NewMemberBuilder;
+import model.dbConnections.ICreateDataBase;
 
 public class SigningUpMember implements LoadingMember {
+
+	ICreateDataBase dataBase;
+
+	public SigningUpMember(ICreateDataBase dataBase) {
+		this.dataBase = dataBase;
+	}
 	
-	public Member run() {
+	public Member run() throws AlreadyExistingMemberException {
 		
 		Member member = new Member();
 		Scanner sc = new Scanner(System.in);
 		
 		
-		System.out.println("Answer five questions so you can officially be a member of the BrownBox family!");
+		System.out.println("Answer five questions so you can officially be a member of the Brown Box family!");
 		
 		System.out.println("What is your first name?");		
 		member.setFirstName(sc.nextLine());
@@ -30,7 +38,7 @@ public class SigningUpMember implements LoadingMember {
 		System.out.println("What is your password?");
 		member.setPassword(sc.nextLine());
 		
-		new NewMemberBuilder(member).run();
+		new NewMemberBuilder(member, dataBase).run();
 		return member;
 	}
 }

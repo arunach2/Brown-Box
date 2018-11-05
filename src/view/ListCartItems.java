@@ -1,9 +1,10 @@
-package model.databases;
+package view;
 
 import java.util.Iterator;
 
 import model.IDigitalEntertainment;
 import model.IShoppingCart;
+import model.databases.IDatabaseAccesser;
 
 public class ListCartItems implements IDatabaseAccesser {
 	

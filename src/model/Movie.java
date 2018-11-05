@@ -14,12 +14,6 @@ public class Movie implements IDigitalEntertainment{
 	public void setID(int movieID) {
 		this.movieID = movieID;
 	}
-	@Override
-	public void setCost() {
-		if (2018 == year) {cost = 3.00;}
-		else if (2018 - year == 1) {cost = 2.50;}
-		else {cost = 1.50;}
-	}
 	
 	@Override
 	public void setDirector(String director) {
@@ -50,6 +44,9 @@ public class Movie implements IDigitalEntertainment{
 	}
 	@Override
 	public double getCost() {
+		if (2018 == year) {cost = 3.00;}
+		else if (2018 - year == 1) {cost = 2.50;}
+		else {cost = 1.50;}
 		return cost;
 	}
 	@Override

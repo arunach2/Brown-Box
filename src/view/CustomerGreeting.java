@@ -3,11 +3,13 @@ package view;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import errors.AlreadyExistingMemberException;
 import errors.InvalidLoginException;
 import model.Member;
+import model.dbConnections.ICreateDataBase;
 
 public class CustomerGreeting {
-	public Member greeting() {
+	public static Member greeting(ICreateDataBase dataBase) throws InputMismatchException {
 		
 		Scanner sc = new Scanner(System.in);
 		
@@ -18,17 +20,17 @@ public class CustomerGreeting {
 				System.out.println("Press 1 if you are a new member. Press 2 if you are an existing member.");
 				int choice = sc.nextInt();
 				if (choice == 1) {
-					loadingMemberCommand = new SigningUpMember();
+					loadingMemberCommand = new SigningUpMember(dataBase);
 				}
 				else if (choice == 2){
-					loadingMemberCommand = new AccessingExistingMember();
+					loadingMemberCommand = new AccessingExistingMember(dataBase);
 				}
 				else {
 					
 					throw new InputMismatchException();
 				}
-				// Close scanner as 
-				
+				// Close scanner
+				sc.close();
 				return loadingMemberCommand.run();
 			}
 			
@@ -42,9 +44,14 @@ public class CustomerGreeting {
 			catch (InvalidLoginException e) {
 				System.out.println("Invalid login!");
 				System.out.println("Try again!");
-				// sc.next();
 				continue;
 			}
+
+			catch (AlreadyExistingMemberException e) {
+			    System.out.println(e.getMessage());
+			    System.out.println("Try Again");
+			    continue;
+            }
 			
 			catch(Exception e) {
 				System.out.println("Bug in the code");
@@ -53,5 +60,7 @@ public class CustomerGreeting {
 				// return;
 			}
 		}
-	}	
+
+
+	}
 }

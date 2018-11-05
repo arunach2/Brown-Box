@@ -1,0 +1,10 @@
+insert into movies (director, title, genre, year, imdb_rating) values ("Boaz Yakin", "Remember The Titans", "Sports/Drama", 2000, 7.8);
+insert into movies (director, title, genre, year, imdb_rating) values ("Gary Winick", "13 Going On 30", "Romance/Fantasy", 2004, 6.1);
+insert into movies (director, title, genre, year, imdb_rating) values ("Gus Van Sant", "Good Will Hunting", "Drama/Indie", 1997, 8.3);
+insert into movies (director, title, genre, year, imdb_rating) values ("Ron Howard", "A Beautiful Mind", "Drama/Romance", 2000, 8.2);
+insert into movies (diretor, title, genre, year, imdb_rating) values ("Boaz Yakin", "Remember The Titans", "Drama", 2000, 7.8);
+insert into movies (diretor, title, genre, year, imdb_rating) values ("Boaz Yakin", "Remember The Titans", "Drama", 2000, 7.8);
+insert into movies (diretor, title, genre, year, imdb_rating) values ("Boaz Yakin", "Remember The Titans", "Drama", 2000, 7.8);
+insert into movies (diretor, title, genre, year, imdb_rating) values ("Boaz Yakin", "Remember The Titans", "Drama", 2000, 7.8);
+insert into movies (diretor, title, genre, year, imdb_rating) values ("Boaz Yakin", "Remember The Titans", "Drama", 2000, 7.8);
+insert into movies (diretor, title, genre, year, imdb_rating) values ("Boaz Yakin", "Remember The Titans", "Drama", 2000, 7.8);

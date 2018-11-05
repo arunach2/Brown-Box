@@ -3,10 +3,17 @@ package view;
 import java.util.Scanner;
 
 import errors.InvalidLoginException;
-import model.ExistingMemberBuilder;
+import model.databases.ExistingMemberBuilder;
 import model.Member;
+import model.dbConnections.ICreateDataBase;
 
 public class AccessingExistingMember implements LoadingMember{
+
+	ICreateDataBase dataBase;
+
+	public AccessingExistingMember(ICreateDataBase dataBase) {
+		this.dataBase = dataBase;
+	}
 	
 	public Member run() throws InvalidLoginException{
 		
@@ -16,7 +23,9 @@ public class AccessingExistingMember implements LoadingMember{
 		System.out.println("What is your password?");
 		String password = sc.nextLine();
 		
-		return new ExistingMemberBuilder().access(userName, password);
+		return new ExistingMemberBuilder(userName, password, dataBase).run();
 		
 	}
+
+
 }

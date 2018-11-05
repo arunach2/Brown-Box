@@ -1,9 +1,6 @@
 package errors;
 
-public class InvalidLoginException extends Exception{	
-	
-	      // Parameterless Constructor
-	      public InvalidLoginException() {}
+public class InvalidLoginException extends Exception {
 
 	      // Constructor that accepts a message
 	      public InvalidLoginException(String message)

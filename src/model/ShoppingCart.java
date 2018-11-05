@@ -10,6 +10,8 @@ public class ShoppingCart implements IShoppingCart{
 	public ShoppingCart() {
 		this.shoppingCart =  new ArrayList<IDigitalEntertainment>();
 	}
+
+	public ShoppingCart(ArrayList<IDigitalEntertainment> shoppingCart) { this.shoppingCart = shoppingCart;}
 	
 	public Iterator<IDigitalEntertainment> iterator() {
 		return shoppingCart.iterator();
